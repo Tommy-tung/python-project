@@ -76,8 +76,7 @@ class data_preparation :
     def creat_train_test(self, ratio) : 
         a = random.randint(1,1000)
         self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(self.X.iloc[:,3:], 
-                                                                                self.Y, test_size = 
-ratio,
+                                                                                self.Y, test_size = ratio,
                                                                                 random_state = a)
         
     
