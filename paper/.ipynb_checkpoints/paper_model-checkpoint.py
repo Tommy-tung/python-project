@@ -55,29 +55,40 @@ class hybrid :
         
     def logistic(self, param_grid ) : 
         
-        self.logistic = GridSearchCV(LogisticRegression(), param_grid , 
-                                     scoring = self.score, cv = self.cv)
+        self.logistic = GridSearchCV(LogisticRegression(), 
+                                     param_grid , 
+                                     scoring = self.score,
+                                     cv = self.cv)
         self.logistic.fit(self.x_train, self.y_train)
         print('Logistic training complete ', self.logistic.best_estimator_, self.logistic.best_score_ ,sep = '\n')
         print('===============================')
         
     def svm(self, param_grid) :
         
-        self.svm = GridSearchCV(SVC(), param_grid , scoring = self.score, cv = self.cv)
+        self.svm = GridSearchCV(SVC(),
+                                param_grid,
+                                scoring = self.score,
+                                cv = self.cv)
         self.svm.fit(self.x_train, self.y_train)
         print('SVM training complete', self.svm.best_estimator_, self.svm.best_score_ ,sep = '\n')
         print('===============================')
     
     def rf(self, param_grid) :
         
-        self.rf = GridSearchCV(RandomForestClassifier(), param_grid , scoring = self.score, cv = self.cv)
+        self.rf = GridSearchCV(RandomForestClassifier(), 
+                               param_grid, 
+                               scoring = self.score, 
+                               cv = self.cv)
         self.rf.fit(self.x_train, self.y_train)
         print('RF training complete', self.rf.best_estimator_, self.rf.best_score_ ,sep = '\n')
         print('===============================')
         
     def mlp(self, param_grid) :
         
-        self.mlp = GridSearchCV(MLPClassifier(), param_grid , scoring = self.score, cv = self.cv)
+        self.mlp = GridSearchCV(MLPClassifier(),
+                                param_grid,
+                                scoring = self.score,
+                                cv = self.cv)
         self.mlp.fit(self.x_train, self.y_train)
         print('MLP training complete', self.mlp.best_estimator_,self.mlp.best_score_ , sep = '\n')
         print('===============================')

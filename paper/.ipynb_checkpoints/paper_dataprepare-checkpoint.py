@@ -68,8 +68,7 @@ class data_preparation :
     def creat_X_Y(self) : 
         data = pd.concat([self.data_full, self.distress], axis = 1).dropna(axis = 0)
         self.X = data.iloc[:,:-4].reset_index()
-        self.Y = pd.DataFrame(list(np.where((data.iloc[: ,-2] < float(0)) & 
-                                            (data.iloc[:, -1]< float(0)) ,1,0)), 
+        self.Y = pd.DataFrame(list(np.where((data.iloc[: ,-2] < float(0)) & (data.iloc[:, -1]< float(0)) ,1,0)), 
                               columns = ['distress'])
         
         
