@@ -85,21 +85,4 @@ class data_preparation :
         test = df.iloc[:,-1:]
         return train, test
         
-        
-        
-        
-        
-        
-
-
-# In[637]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
