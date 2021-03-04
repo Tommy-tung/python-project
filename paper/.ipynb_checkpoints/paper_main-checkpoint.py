@@ -32,20 +32,34 @@ path = '/Users/tommy84729/python/論文/'
 
 
 model = data_preparation(data, macro)
-model.macro_pre()
-model.distress_pre()
-model.create_data()
-model.creat_X_Y()
-model.creat_train_test(0.3)
-model.x_train, model.y_train = model.clean_data(name1, name2, num, 
-                                                model.x_train, model.y_train)
 
 
 # In[5]:
 
 
-hybrid_model = hybrid(model.x_train, model.y_train, 
-                      model.x_test, model.y_test, 3, 'f1_weighted')
+model.macro_pre()
+model.distress_pre()
+model.create_data()
+model.creat_X_Y()
+model.creat_train_test(0.3)
+model.x_train, model.y_train = model.clean_data(name1, name2, num, model.x_train, model.y_train)
+
+
+# In[9]:
+
+
+model.x_train
+
+
+# In[10]:
+
+
+hybrid_model = hybrid(model.x_train, model.y_train, model.x_test, model.y_test, 3, 'f1_weighted')
+
+
+# In[11]:
+
+
 hybrid_model.scale()
 hybrid_model.pca(10)
 
@@ -141,10 +155,15 @@ param_grid_h_mlp = [
        ]
 
 
-# In[22]:
+# In[21]:
 
 
 hybrid_model.meta_data()
+
+
+# In[22]:
+
+
 hybrid_model.hybrid_model(param_grid_h_rf, param_grid_h_mlp, 3, 'f1_weighted')
 
 
@@ -161,4 +180,10 @@ ls_h = [':', '--', '-.', '-']
 
 
 hybrid_model.roc_curve(clf_h, label_h, color_h, ls_h,'test')
+
+
+# In[ ]:
+
+
+
 
