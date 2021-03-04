@@ -54,7 +54,11 @@ model.x_train
 # In[10]:
 
 
-hybrid_model = hybrid(model.x_train, model.y_train, model.x_test, model.y_test, 3, 'f1_weighted')
+hybrid_model = hybrid(model.x_train, 
+                      model.y_train, 
+                      model.x_test, 
+                      model.y_test, 
+                      3, 'f1_weighted')
 
 
 # In[11]:
@@ -164,7 +168,9 @@ hybrid_model.meta_data()
 # In[22]:
 
 
-hybrid_model.hybrid_model(param_grid_h_rf, param_grid_h_mlp, 3, 'f1_weighted')
+hybrid_model.hybrid_model(param_grid_h_rf, 
+                          param_grid_h_mlp, 
+                          3, 'f1_weighted')
 
 
 # In[23]:
@@ -180,10 +186,3 @@ ls_h = [':', '--', '-.', '-']
 
 
 hybrid_model.roc_curve(clf_h, label_h, color_h, ls_h,'test')
-
-
-# In[ ]:
-
-
-
-
