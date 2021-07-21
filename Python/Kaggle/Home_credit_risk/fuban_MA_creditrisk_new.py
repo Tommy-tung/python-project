@@ -10,38 +10,6 @@ import os
 from sklearn.impute import SimpleImputer
 
 
-# In[136]:
-
-
-path = '/Users/tommy84729/Coding/Fubon/home-credit-default-risk'
-numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
-
-
-# In[3]:
-
-
-### train/test : 客戶申請表
-### bureau/bureau_balance 由其他金融机构提供给征信中心的客户信用记录历史(月数据)
-### cash_balance 客户在Home Credit数据库中POS(point of sales)和现金贷款历史(月数据)
-### credit_card 客户在Home Credit数据库中信用卡的snapshot历史(月数据) 包含了客户消费次数, 消费金额等情况
-### previous(application) 客户先前的申请记录，包含了客户所有历史申请记录(申请信息, 申请结果等)
-### installments_payment 客户先前信用卡的还款记录，包含了客户的还款情况(还款日期, 是否逾期, 还款金额, 是否欠款等)
-
-
-# In[43]:
-
-
-filelist = os.listdir(path)
-test = pd.read_csv(path+'/'+filelist[0])
-cash_balance = pd.read_csv(path+'/'+filelist[2])
-credit_card = pd.read_csv(path+'/'+filelist[3])
-installment_payment = pd.read_csv(path+'/'+filelist[4])
-train = pd.read_csv(path+'/'+filelist[5])
-bureau = pd.read_csv(path+'/'+filelist[6])
-previous = pd.read_csv(path+'/'+filelist[7])
-bureau_balance = pd.read_csv(path+'/'+filelist[8])
-
-
 # In[135]:
 
 
@@ -337,5 +305,6 @@ class data_preprocessing :
         self.x_train = train.drop('TARGET', axis = 1)
         
         print('train test split finished')
+    
     
 
